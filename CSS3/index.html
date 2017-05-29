@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<style>
+	body{background-color: #292a38;}
+	*{padding:0;margin:0;}
+	.nav-wrap{
+		position:relative;
+		width:200px;
+		height:200px;
+		margin:50px auto;
+		border:2px dotted #4e5061;
+		border-radius:50%;
+	}
+	.nav-wrap .main-nav{
+		position: absolute;
+		width: 70px;
+		height: 30px;
+		background: #15a5f3;
+		top: 50%;
+		left: 50%;
+		text-align: center;
+		line-height: 30px;
+		font-size: 16px;
+		color: white;
+		cursor: pointer;
+		border-radius: 4px;
+		transform: translate(-50%,-50%);
+	}
+	.nav-wrap nav{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		transition: all 0.5s;
+		opacity: 0;
+		transform: scale(0);
+	}
+	.nav-wrap:hover nav {
+		transform: scale(1);
+		opacity: 1;
+	}
+	.nav-wrap nav > a{
+		position: absolute;
+		width: 30px;
+		height: 30px;
+		background: #f44283;
+		text-align: center;
+		line-height: 30px;
+		color:#fff;
+		border-radius: 3px;
+		text-shadow: 1px 1px 0 #000;
+		font-size: 20px;
+		transform: translate(-50%,-50%);
+	}
+</style>
+</head>
+<body>
+	<div class="nav-wrap">
+		<nav>
+			<a class="nav-item" style="top:0;left:100px">1</a>
+			<a class="nav-item" style="top:100px;left:200px">2</a>
+			<a class="nav-item" style="top:200px;left:100px">3</a>
+			<a class="nav-item" style="top:100px;left:0">4</a>
+		</nav>
+		<a id='main-nav' class="main-nav">click me</a>
+	</div>
+</body>
+</html>
