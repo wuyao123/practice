@@ -1,0 +1,75 @@
+*{margin:0;padding:0;font-family:"microsoft yahei";}
+a:hover{cursor:pointer;text-decoration: none;display:block;}
+/*顶部*/
+.top{width:1000px;height:100px;z-index: 10000;margin:0 auto;}
+.top_left{float:left;width:500px;height:100%;}
+.top_right{float:left;width:486px;height:100%;margin-left:14px;}
+.gz_ziti{font-size: 20px;color: #000;margin-top: 23px;}
+.zhuce_i{height: 16px;margin-top: 21px;font-size: 14.41px;color: #000;}
+.zhuce_i li{float: left;margin-left: 20px;}
+.duigou{margin-top: 4px;margin-right: 7px;}
+
+/*banner*/
+.banner{width: 100%;height: 577px;background-image: url('../images/beijing_06.png');background-repeat: no-repeat;background-position: top center;}
+.content{float:left;width: 668px;height: 494px;background-image: url('../images/bjs_07.png');margin-top: 33px;display: table;}
+.con{width: 1018px;margin: 0 auto;display: table;}
+.tupian_i{width: 647px;height: 176px;margin-left: 12px;margin-top: 11px;display: table;}
+.tupian_i li{width:161px;height: 86px;float: left;background-image: url('../images/hui_11.png');position:relative;}
+.tupian_i li img{width: 157px;height: 80px;margin-left: 2px;margin-top:2px;}
+.heihezi{position: absolute;width: 157px;height: 80px;top:2px;left: 2px;background-image: url('../images/xinhui_03.png');}
+.jl{font-size: 18px;text-align: center;margin-top: 18px;color: #fff;}
+.nx{font-size: 14px;text-align: center;color: #fff;margin-top: 2px;}
+.yincang{display: none;}
+.xianshi{display: block;}
+
+
+/*职位滚动*/
+/*banner*/
+.gundong{width: 643px;height: 273px;margin:0 auto;margin-top: 27px;}
+#full-screen-slider { width:643px;margin:0 auto; height:273px; position:relative;}
+#slides { display:block; width:643px; height:273px; list-style:none; padding:0; margin:0; position:relative}
+#slides li { display:block; width:100%; height:100%; list-style:none; padding:0; margin:0; position:absolute}
+#slides li a { display:block; width:100%; height:100%; text-indent:-9999px}
+#slides li img{height:100%;width:100%;}
+#pagination { display:block; list-style:none; position:absolute; left:51.6%; top:247px; z-index:9900;  padding:5px 15px 5px 0; margin:0}
+#pagination li { display:block; list-style:none; width:10px; height:10px;overflow:hidden;float:left; margin-left:10px; border-radius:10px; background:#909596;}
+#pagination li a { display:block; width:100%; height:100%; padding:0; margin:0;  text-indent:-9999px;}
+#pagination li.current { background:#000;}
+.xinse{color: #ff4400;}
+
+.yitiao{width: 640px;height: 40px;background-color: #fff;font-size: 14px;line-height: 40px;display: block;margin-bottom: 7px;}
+.yuanse{color: #000;display: block;}
+.diyi_1{width: 268px;display: block;float: left;text-indent: 13px;}
+.diyi_2{width: 148px;display: block;float: left;}
+.diyi_3{width: 100px;display: block;float: left;}
+.diyi_4{width: 118px;display: block;float: left;}
+
+/*登陆注册*/
+.regist_login{width:315px;height:494px;background:#fff;float:right;margin-top: 33px;}
+.regist_login_content{padding:14px 29px 47px 29px;}
+.regist_nav{height:45px;}
+.regist_nav span{cursor:pointer;padding-bottom:10px;line-height: 45px;width:49%;float:left;text-align:center;font-size:16px;color:#9A9A9A;background: url("../images/nav2.png") no-repeat bottom;}
+.regist_nav span.active{color:#FF4300;background: url("../images/nav1.png") no-repeat bottom;}
+.regist_login_content form{margin-top:20px;}
+.regist_login_content input{background: #F4F4F4;padding:10px 16px;height:25px;width:225px;outline:none;border:none;font-size:14px;line-height:25px;}
+.error{color:#FF4300;font-size:12px;background:url("../images/error.png") no-repeat center left;padding-left:17px; }
+.yanzhengma{vertical-align: middle;}
+.yanzhengma input{width:128px;}
+.yanzhengma button{cursor:pointer;margin:5px 0;outline:none;border:none;width:97px;height:45px;line-height:45px;font-size:14px;color:#fff;background:#FF4300;}
+.jingyan{width:100%;height:40px;}
+.jingyan .yes,.jingyan .no{position:relative;width:123px;background:#F4F4F4;color:#3F3F3F;font-size:14px;line-height:40px;text-align: center;cursor:pointer;}
+.jingyan input[type="radio"]{width: 100%;height:100%;position: absolute;top:0;left:0;opacity: 0;filter:alpha(opacity=0);cursor:pointer;}
+.jingyan .yes{float:left;}
+.jingyan .no{float:right;}
+.yuedu input{width:16px;height:16px;background: url("../images/check1.png") no-repeat center left;vertical-align: middle;margin-right:10px;}
+.yuedu{width:256px;font-size: 14px;color: #353535;margin-left:6px;}
+.yuedu .col_red{color:#FF4300;}
+.phone_num,.yanzhengma,.password,.jingyan{margin-bottom:5px;}
+.yuedu{margin-top:20px;}
+.regist_submit,.login_submit{margin-top:20px;text-align: center;}
+.regist_submit input,.login_submit input{cursor:pointer;width:184px;height:43px;background: url("../images/submit.png") no-repeat center center;}
+.error{visibility: hidden;}
+#form_login{display: none;margin-top: 60px;}
+.note{color: #FF4400;font-size: 15px;text-align: right;}
+.login_submit{margin-top: 20px;}
+.login_submit input{background: url("../images/login.png") no-repeat center center;}
