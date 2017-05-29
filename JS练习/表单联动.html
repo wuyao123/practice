@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#company{display: none;}
+	</style>
+</head>
+<body>
+	<input type="radio" name="state" value="student" id="student" checked="checked">
+	<label for="student">在校生</label>
+	<input type="radio" name="state" value="working" id="working">
+	<label for="working">非在校生</label>
+	<div id="company">
+		就业单位：<input type="text">
+	</div>
+	<div class="school">
+		<select name="city" id="city"></select>
+		<select name="school" id="school">
+			<option value="请选择" selected="selected">请选择</option>
+		</select>
+	</div>
+</body>
+<script type="text/javascript" src="EventUtil_test.js"></script>
+<script>
+	var student_radio = document.querySelector("#student");
+	var working_radio = document.querySelector("#working");
+	var select_city = document.querySelector("#city");
+	var select_school = document.querySelector("#school");
+	var company = document.querySelector("#company");
+	var scho = document.querySelector(".school");
+	var schools = {
+		'请选择': ['请选择'],
+		'北京': ['北京大学', '清华大学'],
+		'成都': ['四川大学', '西南石油大学']
+	};
+	var keys = [];
+	for(var key in schools){
+		keys.push(key);
+	}
+	keys.forEach(function(item){
+		var option = document.createElement("option");
+		option.innerHTML = item;
+		select_city.appendChild(option);
+	});
+	function changeCity(){
+		var index = select_city.selectedIndex;
+		var school = schools[keys[index]];
+		select_school.innerHTML = '';
+		school.forEach(function(item){
+			var option = document.createElement("option");
+			option.innerHTML = item;
+			select_school.appendChild(option);
+		});
+	}
+	function studentShow(){
+		company.style.display = "none";
+		scho.style.display = "block";
+	}
+	function workingShow(){
+		company.style.display = "block";
+		scho.style.display = "none";
+	}
+	EventUtil.addHandler(student_radio,"click",studentShow);
+	EventUtil.addHandler(working_radio,"click",workingShow);
+	EventUtil.addHandler(select_city,"change",changeCity);
+</script>
+</html>

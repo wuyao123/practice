@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		li{
+			display: inline-block;
+			margin-right: 10px;
+			padding:4px;
+			background: red;
+			color: #fff;
+			cursor: pointer;
+			width: 26px;
+			text-align: center;
+			vertical-align: text-bottom;
+			font-size: 12px;
+		}
+	</style>
+	<script type="text/javascript" src="EventUtil_test.js"></script>
+</head>
+<body>
+	<div style="margin-bottom: 20px">
+		请输入：<input type="text">
+	</div>
+	<button id="insert_left">左侧入</button>
+	<button id="insert_right">右侧入</button>
+	<button id="remove_left">左侧出</button>
+	<button id="remove_right">右侧出</button>
+	<button id="sort">排序</button>
+	<div style="margin-top: 20px">
+		<ul style="list-style: none"></ul>
+	</div>
+</body>
+<script>
+	var leftIn = document.querySelector("#insert_left");
+	var rightIn = document.querySelector("#insert_right");
+	var leftOut = document.querySelector("#remove_left");
+	var rightOut = document.querySelector("#remove_right");
+	var sort = document.querySelector("#sort");
+	var ul = document.querySelector("ul");
+	var input = document.querySelector("input");
+	var removreLi = function(){
+		var flag = confirm("确认要删除这个元素吗？");
+		if(flag){
+			ul.removeChild(this);
+		}
+	};
+	var insertLeft = function(){
+		var value = input.value;
+		if(value == "" || value<11){
+			alert("请输入非空字符和10~100的数字");
+		}else{
+			var li = document.createElement("li");
+			li.style.height = value +"px";
+			li.style.lineHeight = value +"px";
+			EventUtil.addHandler(li,"click",removreLi);
+			if(ul.hasChildNodes()){
+				ul.insertBefore(li,ul.firstChild);
+			}else{
+				ul.appendChild(li);
+			}
+			input.value = "";
+		}
+		input.focus();
+		
+	};
+	var insertRight = function(){
+		var value = input.value;
+		if(value == "" || value<11){
+			alert("请输入非空字符和10~100的数字");
+		}else{
+			var li = document.createElement("li");
+			li.style.height = value +"px";
+			li.style.lineHeight = value +"px";
+			EventUtil.addHandler(li,"click",removreLi);
+			ul.appendChild(li);
+			input.value = "";
+		}
+		input.focus();
+	};
+	var removeLeft = function(){
+		if(ul.hasChildNodes()){
+			ul.removeChild(ul.firstChild);
+		}else{
+			alert("请先插入元素");
+		}
+		input.value = "";
+		input.focus();
+	};
+	var removeRight = function(){
+		if(ul.hasChildNodes()){
+			ul.removeChild(ul.lastChild);
+		}else{
+			alert("请先插入元素");
+		}
+		input.value = "";
+		input.focus();
+	};	
+	function sortNum(){
+		var lists = ul.querySelectorAll("li");
+		var len = lists.length;
+		var k = len*(len-1)/2;
+		var count = 1;
+		console.log("k is "+k);
+		sort.disabled = true;
+		// var i = 0,j = 0;
+		// function comparison(){
+		// 	for (var n = 0; n < len; n++) {  //元素恢复红色
+		// 	  lists[n].style.backgroundColor = 'red';
+		// 	}
+		// 	if (j == len-i-1) {
+		// 	  i++;
+		// 	  j = 0;
+		// 	}
+		// 	if (i == len-1) {
+		// 	  clearInterval(compare);
+		// 	  return false;
+		// 	}
+	 //    	var a = parseInt(lists[j].style.height);
+		// 	var b = parseInt(lists[j+1].style.height);
+		// 	lists[j].style.backgroundColor = 'green';
+		// 	lists[j+1].style.backgroundColor = 'green';  //正在比较的元素设为绿色
+		// 	if (a > b) {
+		// 	  lists[j].style.height = b + 'px';
+		// 	  lists[j+1].style.height = a + 'px';
+		// 	}
+		// 	j++;
+		// }
+		// var compare = setInterval(comparison,2000);
+		for(var i = 0;i<len-1;i++){
+			for(var j = 0;j<len-i-1;j++){
+				(function(count,j){
+					setTimeout(function(){
+						for(var n = 0; n < len; n++){
+							lists[n].style.backgroundColor = 'red';
+						}
+			        	var a = parseInt(lists[j].style.height);
+						var b = parseInt(lists[j+1].style.height);
+						lists[j].style.backgroundColor = "green";
+						lists[j+1].style.backgroundColor = "green";
+						if(a > b){
+							lists[j+1].style.height = a+"px";
+							lists[j].style.height = b+"px";
+						}
+						if(count == k){
+							sort.disabled = false;
+						}
+						console.log("count is "+count);
+					},1000*count);
+				})(count++,j);
+			}
+		}	
+	}
+	function init(){
+		EventUtil.addHandler(leftIn,"click",insertLeft);
+		EventUtil.addHandler(rightIn,"click",insertRight);
+		EventUtil.addHandler(leftOut,"click",removeLeft);
+		EventUtil.addHandler(rightOut,"click",removeRight);
+		EventUtil.addHandler(sort,"click",sortNum);
+	}
+	init();
+</script>
+</html>

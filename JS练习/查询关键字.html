@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		li{
+			display: inline-block;
+			margin-right: 10px;
+			padding:4px;
+			background: #fff;
+			color: red;
+			cursor: pointer;
+			width: 24px;
+			text-align: center;
+			vertical-align: text-bottom;
+			font-size: 12px;
+			line-height: 24px;
+			border: 1px solid red;
+		}
+		li.selected,li:hover{
+			background: red;
+			color: #fff;
+		}
+	</style>
+	<script type="text/javascript" src="EventUtil_test.js"></script>
+</head>
+<body>
+	<div style="margin-bottom: 20px">
+		请输入：<input type="text" id="insertItem">
+	</div>
+	<button id="insert_left">左侧入</button>
+	<button id="insert_right">右侧入</button>
+	<button id="remove_left">左侧出</button>
+	<button id="remove_right">右侧出</button>
+	<div style="margin-top: 20px">
+		<ul style="list-style: none"></ul>
+	</div>
+	<input type="text" id="searchItem">
+	<button id="search">查询</button>
+</body>
+<script>
+	var leftIn = document.querySelector("#insert_left");
+	var rightIn = document.querySelector("#insert_right");
+	var leftOut = document.querySelector("#remove_left");
+	var rightOut = document.querySelector("#remove_right");
+	var search = document.querySelector("#search");
+	var sort = document.querySelector("#sort");
+	var ul = document.querySelector("ul");
+	var input = document.querySelector("#insertItem");
+	var searchCon = document.querySelector("#searchItem");
+	var removreLi = function(){
+		var flag = confirm("确认要删除这个元素吗？");
+		if(flag){
+			ul.removeChild(this);
+		}
+	};
+	var insertLeft = function(){
+		var value = input.value;
+		var li = document.createElement("li");
+		li.innerHTML = value;
+		EventUtil.addHandler(li,"click",removreLi);
+		if(ul.hasChildNodes()){
+			ul.insertBefore(li,ul.firstChild);
+		}else{
+			ul.appendChild(li);
+		}
+		input.value = "";
+		input.focus();
+		
+	};
+	var insertRight = function(){
+		var value = input.value;
+		var li = document.createElement("li");
+		li.innerHTML = value;
+		EventUtil.addHandler(li,"click",removreLi);
+		ul.appendChild(li);
+		input.value = "";
+		input.focus();
+	};
+	var removeLeft = function(){
+		if(ul.hasChildNodes()){
+			ul.removeChild(ul.firstChild);
+		}else{
+			alert("请先插入元素");
+		}
+		input.value = "";
+		input.focus();
+	};
+	var removeRight = function(){
+		if(ul.hasChildNodes()){
+			ul.removeChild(ul.lastChild);
+		}else{
+			alert("请先插入元素");
+		}
+		input.value = "";
+		input.focus();
+	};
+	var searchLi = function(){
+		var text = searchCon.value;
+		var lists = ul.childNodes;
+		lists.forEach(function(item,index,array){
+			item.className = "";
+		});
+		lists.forEach(function(item,index,array){
+			if(item.innerHTML.indexOf(text) != -1){
+				item.className = "selected";
+			}
+		});
+	}
+	function init(){
+		EventUtil.addHandler(leftIn,"click",insertLeft);
+		EventUtil.addHandler(rightIn,"click",insertRight);
+		EventUtil.addHandler(leftOut,"click",removeLeft);
+		EventUtil.addHandler(rightOut,"click",removeRight);
+		EventUtil.addHandler(search,"click",searchLi);
+	}
+	init();
+</script>
+</html>

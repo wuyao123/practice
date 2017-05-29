@@ -1,0 +1,40 @@
+table{
+	margin:0 auto;
+	border-collapse: collapse;
+	text-align: center;
+}
+table tr th{
+	padding:5px 20px;
+	background: #000;
+	position: relative;
+	cursor: pointer;
+	color: #fff;
+	font-size: 16px;
+	font-weight: normal;
+}
+table tr th:after,table tr th:before{
+	display: block;
+	content: "";
+	position: absolute;
+	right:6px;
+	border-right: 5px solid transparent;
+	border-left: 5px solid transparent;
+}
+table tr th:after{
+	border-bottom: 5px solid #fff;
+	top: 10px;
+}
+table tr th:before{
+	border-top: 5px solid #fff;
+	bottom: 8px;
+}
+table tr th:first-child:after,table tr th:first-child:before{
+	display: none;
+}
+table tr th,table tr td{
+	border: 1px solid #bfbcbc;
+}
+.buttons{
+	margin-top: 10px;
+	text-align: center;
+}

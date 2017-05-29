@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" placeholder="请输入数据" id="input">
+	<button>确认提交</button>
+	<p>您输入的值是:<span id="output"></span></p>
+</body>
+<script type="text/javascript" src="EventUtil.js"></script>
+<script>
+	(function(){
+		var input = document.getElementById("input");
+		var btn = document.getElementsByTagName("button")[0];
+		var output = document.getElementById("output");
+		var handler = function(){
+			output.innerHTML = input.value;
+		};
+		EventUtil.addHandler(btn,"click",handler);
+	})();
+</script>
+</html>
