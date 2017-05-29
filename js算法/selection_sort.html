@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择排序</title>
+</head>
+<body>
+</body>
+<script>
+	var array = [2,1,7,4,6,10,2];
+	function sort(arr){
+		var len = arr.length;
+		if(len <= 1) {
+	        return arr;
+	    }
+	    var min,i,j,temp;
+	    for(i = 0;i<len-1;i++){
+	    	min = i;
+	    	for(j = i+1;j<len;j++){
+	    		if(arr[min]>arr[j]){
+	    			min = j;
+	    		}
+	    	}
+	    	var temp = arr[i];
+			arr[i] = arr[min];
+			arr[min] = temp;	
+	    }
+	    return arr;
+	}
+	document.write(sort(array));
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>插入排序</title>
+</head>
+<body>
+</body>
+<script>
+var array = [2,1,7,4,6,10,2];
+function sort(arr){
+	var len = arr.length;
+	if(len <= 1){
+		return arr;
+	}
+	for(var i = 1;i<len;i++){
+		for(var j = i-1;j>=0;j--){
+			if(arr[j+1]<arr[j]){
+				var temp = arr[j+1];
+				arr[j+1] = arr[j];
+				arr[j] = temp;
+			}
+		}
+	}
+	return arr;
+}
+console.log(sort(array));
+</script>
+</html>

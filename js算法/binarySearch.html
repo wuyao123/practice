@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>二分查找</title>
+</head>
+<body>
+</body>
+<script>
+// function binarySearch(data,item,start,end){
+//     var end=end || data.length-1;
+//     var start=start || 0;
+//     var m=Math.floor((start+end)/2);
+//     if(item==data[m]){
+//         return m;
+//     }else if(item<data[m]){
+//         return binarySearch(data,item,start,m-1) //递归调用
+//     }else{
+//         return binarySearch(data,item,m+1,end);
+//     }
+//     return false;
+// }
+// function binarySearch(data,item,start,end){
+
+// 	var end = end || data.length-1;
+// 	var start = start || 0;
+
+// 	var m = Math.floor((end+start)/2);
+// 	console.log(m);
+// 	if(data[m] == item){
+// 		return m;
+// 	}else if(item < data[m]){
+// 		 return binarySearch(data,item,start,m-1);
+// 	}else{
+// 		return binarySearch(data,item,m+1,end);
+// 	}
+// }
+function binarySearch(data,item){
+	var end = data.length-1;
+	var start = 0;
+	var m = Math.floor((end+start)/2);
+	while(end>=start){
+		if(data[m] == item){
+			return m;
+		}else if(data[m] > item){
+			end = m-1;
+		}else{
+			start = m+1;
+		}
+		m = Math.floor((end+start)/2);
+	}
+}
+var arr=[1,2,3,4,5,6,7,8,9,10,11,23,44,86];
+document.write(binarySearch(arr,23));
+</script>
+</html>
