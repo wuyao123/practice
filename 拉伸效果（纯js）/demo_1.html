@@ -1,0 +1,50 @@
+<!DOCTYPE>
+<html>
+<head>
+<style>
+*{margin:0;padding:0}
+#div1{
+width:200px;
+height:200px;
+background-color:yellow;
+border:2px solid;
+}
+
+</style>
+<script>
+window.onload = function(){
+	var oDiv = document.getElementById("div1");
+	oDiv.timer = null;
+	oDiv.onmouseover = function(){
+		startMove(oDiv,400,'height');
+	}
+	oDiv.onmouseout = function(){
+		startMove(oDiv,200,'height');
+	}
+}
+function startMove(obj,endValue,att){
+	clearInterval(obj.timer);
+	obj.timer = setInterval(function(){
+		var icur = parseInt(getStyle(obj,att));
+		var speed = (endValue - icur)/10;
+		speed = speed > 0?Math.ceil(speed):Math.floor(speed);
+		if(endValue == icur){
+			clearInterval(obj.timer);
+		}else{
+			obj.style[att] = icur + speed +"px";
+		}
+	},30)
+}
+function getStyle(obj,att){
+	if(obj.currentStyle){
+		return obj.currentStyle[att];
+	}else{
+		return getComputedStyle(obj,false)[att];
+	}
+}
+</script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>
