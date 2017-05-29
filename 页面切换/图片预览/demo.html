@@ -1,0 +1,145 @@
+<!DOCTYPE>
+<html>
+<head>
+<style>
+*{margin:0;padding:0;}
+body{font:"微软雅黑";font-size:14px;}
+#box{width:550px;height:auto;border:1px solid #aaa;overflow:hidden;margin:0 auto;}
+#top{height:40px;}
+#top a{display:block;width:16px;height:16px;float:right;margin:5px;}
+.btn-list-on{background:url(images/btns.jpg) no-repeat -21px 0px;}
+.btn-list-off{background:#fff url(images/btns.jpg) no-repeat -38px 0px;}
+.btn-car-on{background:#fff url(images/btns.jpg) no-repeat -21px -34px;}
+.btn-car-off{background:#fff url(images/btns.jpg) no-repeat -38px -32px;}
+ul{list-style:none;}
+#box ul li{
+	width:164px;
+	height:auto;
+	border:1px solid #ccc;
+	float:left;
+	margin:5px;
+}
+.bicPic{
+	width:50px;
+	height:50px;
+	display:block;
+	float:left;
+	margin:5px;
+}
+p a,p span{
+	display:block;
+	line-height:23px;
+	padding-left:10px;
+}
+.bottom{
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	background-color:#ccc;
+}
+.big{width:100%;height:164px;margin:0px;}
+</style>
+<script>
+	window.onload = function(){
+		var btn1 = document.getElementById("btn1");
+		var btn2 = document.getElementById("btn2");
+		var images  = document.getElementsByTagName("img");
+		btn1.onclick = function(){
+			btn1.className = "btn-list-off";
+			btn2.className = "btn-car-on";
+			for(var i in images){
+				images[i].src = "images/big.jpg";
+				images[i].className = "bicPic big";
+			}
+		}
+		btn2.onclick = function(){
+			btn1.className = "btn-list-on";
+			btn2.className = "btn-car-off";
+			for(var i in images){
+				images[i].src = "images/small.jpg";
+				images[i].className = "bicPic";
+			}
+		}
+	}
+
+
+</script>
+</head>
+<body>
+	<div id="box">
+		<div id="top">
+			<a href="#" id="btn1" class="btn-list-on" title="列表模式"></a>
+			<a href="#" id="btn2" class="btn-car-off" title="卡片模式"></a>
+		</div>
+		<ul>
+			<li>
+				<img class="bicPic" src="images/small.jpg"/>
+				<p>
+					<a href="#">白阳</a>
+					<span>辽宁</span>
+					<span>21个共同好友</span>
+				</p> 
+				<div class="bottom">
+					未分组的好友
+				</div>
+			</li>
+			<li>
+				<img class="bicPic" src="images/small.jpg"/>
+				<p>
+					<a href="#">白阳</a>
+					<span>辽宁</span>
+					<span>21个共同好友</span>
+				</p> 
+				<div class="bottom">
+					未分组的好友
+				</div>
+			</li>
+			<li>
+				<img class="bicPic" src="images/small.jpg"/>
+				<p>
+					<a href="#">白阳</a>
+					<span>辽宁</span>
+					<span>21个共同好友</span>
+				</p> 
+				<div class="bottom">
+					未分组的好友
+				</div>
+			</li>
+			<li>
+				<img class="bicPic" src="images/small.jpg"/>
+				<p>
+					<a href="#">白阳</a>
+					<span>辽宁</span>
+					<span>21个共同好友</span>
+				</p> 
+				<div class="bottom">
+					未分组的好友
+				</div>
+			</li>
+			<li>
+				<img class="bicPic" src="images/small.jpg"/>
+				<p>
+					<a href="#">白阳</a>
+					<span>辽宁</span>
+					<span>21个共同好友</span>
+				</p> 
+				<div class="bottom">
+					未分组的好友
+				</div>
+			</li>
+			<li>
+				<img class="bicPic" src="images/small.jpg"/>
+				<p>
+					<a href="#">白阳</a>
+					<span>辽宁</span>
+					<span>21个共同好友</span>
+				</p> 
+				<div class="bottom">
+					未分组的好友
+				</div>
+			</li>
+			
+		</ul>
+	</div>
+</body>
+</html>
