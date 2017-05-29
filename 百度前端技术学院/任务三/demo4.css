@@ -1,0 +1,42 @@
+.box{
+	border:1px #333333 solid;
+	background-color:#CCC;
+	padding:20px;
+	position:relative;
+}
+.left{
+	position:absolute;
+	left:20px;
+	top:20px;
+	padding:10px;
+	margin-right:20px;
+}
+.left span{
+	vertical-align:top;
+}
+.log{
+	width: 80px;
+    height: 80px;
+	border-radius:50%;
+}
+.right{
+	position:absolute;
+	right:20px;
+	top:20px;
+	padding:20px;
+}
+.right img{
+	display:block;
+	width:80px;
+	height:80px;
+	margin-bottom:20px;
+}
+.center{
+	margin-right:150px;
+	margin-left:200px;
+	padding:10px;
+	display: inline-block;
+}
+.left,.right,.center{
+	background-color:#FFF;
+}
